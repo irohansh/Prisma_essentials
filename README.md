@@ -1,5 +1,4 @@
 ```markdown
-## 1. Using Neon Database
 
 ### 1. Initialize Node Project
 ```bash
@@ -33,8 +32,6 @@ npx prisma init
 
 ```
 
-It will generate a `prisma` folder with `schema.prisma` inside it. All changes will be done inside this file.
-
 ### 5. Select Database
 
 Inside `prisma/schema.prisma`:
@@ -49,7 +46,7 @@ model <meaningful_prisma_model_name> {
 
 ```
 
-* `?` means optional field — user can skip or fill it.
+* Inside model `?` means optional field — user can skip or fill it.
 
 ### 6. Environment Variables
 
@@ -95,8 +92,6 @@ npx prisma generate
 ```bash
 tsc -b
 node dist/index.js
-
-```
 
 ```
 
