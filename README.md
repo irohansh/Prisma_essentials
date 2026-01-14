@@ -56,6 +56,7 @@ Create a `.env` file:
 DATABASE_URL="your_database_url_here"
 
 ```
+* `prisma.config.ts` already contains ```datasource: {url: }```
 
 ### 7. Prisma Client & Migration
 
