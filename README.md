@@ -100,4 +100,3 @@ node dist/index.js
 
 ```
 
-```
