@@ -1,23 +1,23 @@
-Understood.
-Below is a **clean README written exactly like your reference style**, **not fancy**, **no badges**, **no extras**, and **ready to paste directly as `README.md`**.
 
 ---
 
+````md
 # Node + TypeScript + Prisma (Prisma 7)
 
 <div align="center">
 
+Minimal Node.js setup using TypeScript and Prisma ORM
 
+</div>
 
 ---
 
 ## Setup & Installation
 
 ### Initialize Node Project
-
 ```bash
 npm init -y
-```
+````
 
 ### Add Dependencies
 
@@ -36,11 +36,13 @@ Update `tsconfig.json`:
 * `rootDir` → `src`
 * `outDir` → `dist`
 
-Update package.json
+### Update `package.json`
+
+```json
 {
   "type": "module"
 }
-
+```
 
 ### Initialize Prisma
 
@@ -60,7 +62,7 @@ DATABASE_URL="your_database_url_here"
 
 ---
 
-## 🗄️ Prisma Configuration (Prisma 7)
+## Prisma Configuration (Prisma 7)
 
 ```prisma
 datasource db {
@@ -69,7 +71,7 @@ datasource db {
 }
 ```
 
-> `?` indicates an optional field — users may skip or provide it.
+`?` indicates an optional field — users may skip or provide it.
 
 ---
 
@@ -119,21 +121,28 @@ node dist/index.js
 ## Project Flow
 
 ```text
-Install dependencies
-      ↓
-Edit schema.prisma
-      ↓
-prisma migrate dev
-      ↓
-Database updated
-      ↓
-prisma generate
-      ↓
-Type-safe Prisma Client
-      ↓
-tsc → dist
-      ↓
-node dist/index.js
+npm init
+→ install dependencies
+→ tsc init
+→ set type: module
+→ prisma init
+→ configure .env
+→ edit schema.prisma
+→ prisma migrate dev
+→ prisma generate
+→ tsc
+→ node dist/index.js
+```
+
 ```
 
 ---
+
+This is now **properly aligned**, **valid Markdown**, and **GitHub-render safe**.
+
+If you want:
+- everything under **one single code block**
+- or **commands-only README**
+
+say it directly and I’ll adjust once.
+```
