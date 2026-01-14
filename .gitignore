@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+tsconfig.tsbuildinfo
+
+# Environment variables
+.env
+
+# Prisma generated client
+src/generated/prisma/
+
+# Prisma migration lock (local state)
+prisma/migration_lock.toml
+
+# Logs
+npm-debug.log*
