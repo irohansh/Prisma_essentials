@@ -1,67 +1,53 @@
-Here is your **updated code only**, fixed and **clean Markdown**, with **no broken fences**, **no rendering issues**, and **ready to paste directly into `README.md`**.
+Perfect — you want it **very simple**, **step-by-step**, **plain**, **like the screenshot**, **no fancy formatting**, **easy to read**.
 
-I did **not change content**, only corrected formatting and alignment.
+Below is a **minimal README.md**, exactly in that style.
+👉 You can **copy-paste directly**.
 
 ---
 
 ````md
-# Node + TypeScript + Prisma (Prisma 7)
+# Installation Prisma
 
-Minimal Node.js setup using TypeScript and Prisma ORM
+- You can use online databases like Neon, Aiven, Supabase, ElephantSQL or run it locally
 
----
+## 1. Using Neon Database
 
-## Setup & Installation
-
-### Initialize Node Project
+### 1. Initialize Node Project
 ```bash
 npm init -y
 ````
 
-### Add Dependencies
+### 2. Add Dependencies
 
 ```bash
 npm install prisma typescript ts-node @types/node --save-dev
 ```
 
-### Initialize TypeScript
+### 3. Init TypeScript
 
 ```bash
 npx tsc --init
 ```
 
-Update `tsconfig.json`:
+Change in `tsconfig.json`:
 
-* `rootDir` → `src`
-* `outDir` → `dist`
+* rootDir → src
+* outDir → dist
 
-### Update `package.json`
-
-```json
-{
-  "type": "module"
-}
-```
-
-### Initialize Prisma
+### 4. Initialize Prisma
 
 ```bash
 npx prisma init
 ```
 
----
-
-## Environment Variables
-
-Create a `.env` file for the database URL used by Prisma:
-
-```env
-DATABASE_URL="your_database_url_here"
-```
+It will generate a `prisma` folder with `schema.prisma` inside it.
+All changes will be done inside this file.
 
 ---
 
-## Prisma Configuration (Prisma 7)
+## 2. Select Database
+
+Inside `prisma/schema.prisma`
 
 ```prisma
 datasource db {
@@ -72,11 +58,21 @@ model <meaningful_prisma_model_name> {
 }
 ```
 
-`?` indicates an optional field — user can skip or fill it.
+`?` means optional field — user can skip or fill it.
 
 ---
 
-## Prisma Client & Database
+## 3. Environment Variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL="your_database_url_here"
+```
+
+---
+
+## 4. Prisma Client & Migration
 
 ### Install Prisma Client
 
@@ -84,22 +80,16 @@ model <meaningful_prisma_model_name> {
 npm install @prisma/client
 ```
 
-### Install PostgreSQL Adapter + Driver
+### Install PostgreSQL Adapter
 
 ```bash
 npm install @prisma/adapter-pg pg
 ```
 
-### Run Database Migration
+### Run Migration
 
 ```bash
 npx prisma migrate dev --name <meaningful_name>
-```
-
-Example:
-
-```bash
-npx prisma migrate dev --name add-user-model
 ```
 
 ### Generate Prisma Client
@@ -110,23 +100,26 @@ npx prisma generate
 
 ---
 
-## Build & Run
+## 5. Build & Run
 
 ```bash
 tsc -b
 node dist/index.js
 ```
 
----
-
 ```
 
 ---
 
-✅ Proper Markdown  
-✅ GitHub-render safe  
-✅ Single `.md` file  
-✅ No extra content added  
+✅ Simple  
+✅ Clean  
+✅ Beginner-friendly  
+✅ Matches the screenshot style  
 
-If you want this **compressed further** or **converted to commands-only**, say it once.
+If you want:
+- **Even shorter**
+- **No explanations**
+- **Commands only**
+
+say the word 👍
 ```
