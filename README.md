@@ -1,153 +1,103 @@
-Here is a clean, well-structured `README.md` file based on your steps. I have organized it with proper headings, code blocks for syntax highlighting, and clear descriptions.
-
----
-
 ```markdown
-# Prisma with TypeScript & PostgreSQL Setup Guide
+## 1. Using Neon Database
 
-This guide outlines the steps to set up a Node.js project using TypeScript and Prisma ORM with a PostgreSQL database.
-
-## 1. Project Initialization
-
-Initialize a new Node.js project.
-
+### 1. Initialize Node Project
 ```bash
 npm init -y
 
 ```
 
-## 2. Install Dependencies
-
-Install the necessary development dependencies for TypeScript and Prisma.
+### 2. Add Dependencies
 
 ```bash
 npm install prisma typescript ts-node @types/node --save-dev
 
 ```
 
-## 3. Initialize TypeScript
-
-Generate the `tsconfig.json` file.
+### 3. Init TypeScript
 
 ```bash
 npx tsc --init
 
 ```
 
-### Configuration
+Change the following in `tsconfig.json`:
 
-Open `tsconfig.json` and modify the following directory paths to keep the project organized:
+* `rootDir` → `src`
+* `outDir` → `dist`
 
-* **Root Directory:** Change `rootDir` to `./src`
-* **Output Directory:** Change `outDir` to `./dist`
-
-```json
-{
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist"
-  }
-}
-
-```
-
-## 4. Initialize Prisma
-
-Initialize the Prisma environment. This will create a `prisma` folder containing `schema.prisma`.
+### 4. Initialize Prisma
 
 ```bash
 npx prisma init
 
 ```
 
-## 5. Configure Database Schema
+It will generate a `prisma` folder with `schema.prisma` inside it. All changes will be done inside this file.
 
-Open `prisma/schema.prisma` and configure the datasource and models.
+### 5. Select Database
 
-### Update Datasource
-
-Ensure the provider is set to `postgresql`.
+Inside `prisma/schema.prisma`:
 
 ```prisma
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql" // or mysql | mongodb
+}
+
+model <meaningful_prisma_model_name> {
 }
 
 ```
 
-### Create Model
+* `?` means optional field — user can skip or fill it.
 
-Add the User model to the schema.
+### 6. Environment Variables
 
-```prisma
-model User {
-  id    Int     @id @default(autoincrement())
-  name  String? // ? denotes an optional field
-  email String  @unique
-}
-
-```
-
-## 6. Environment Variables
-
-Create a `.env` file in the root directory (if it wasn't created automatically) and add your database connection string.
+Create a `.env` file:
 
 ```env
-DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
+DATABASE_URL="your_database_url_here"
 
 ```
 
-## 7. Prisma Client & Migrations
+### 7. Prisma Client & Migration
 
-### Install Dependencies
-
-Install the main Prisma Client and the PostgreSQL adapter.
+**Install Prisma Client**
 
 ```bash
-# Install Prisma Client
 npm install @prisma/client
 
-# Install PostgreSQL Adapter (and pg driver)
+```
+
+**Install PostgreSQL Adapter**
+
+```bash
 npm install @prisma/adapter-pg pg
 
 ```
 
-### Run Migrations
-
-Create the database tables based on your schema.
+**Run Migration**
 
 ```bash
-npx prisma migrate dev --name add-user-model
+npx prisma migrate dev --name <meaningful_name>
 
 ```
 
-### Generate Client
-
-Generate the type-safe Prisma client based on your schema.
+**Generate Prisma Client**
 
 ```bash
 npx prisma generate
 
 ```
 
-## 8. Build & Run
-
-Compile the TypeScript code and run the compiled JavaScript.
+### 8. Build & Run
 
 ```bash
-# Build the project (uses settings from tsconfig.json)
 tsc -b
-
-# Run the compiled application
 node dist/index.js
 
 ```
 
 ```
-
-### Next Steps
-1. Copy the code block above.
-2. Create a file named `README.md` in your project root.
-3. Paste the content and save.
 
 ```
