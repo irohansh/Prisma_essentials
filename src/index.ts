@@ -12,13 +12,24 @@ async function createAtTable(){
     try{
         const user=await prisma.user.create({
             data:{
-                username:"irohansh",
+                username:"rohansh",
                 password:"rohan",
                 firstName:"Rohan",
-                lastName:"Sharma"
+                lastName:"Sharma",
+                todos: {
+                    create: [
+                      {
+                        title: "First Todo",
+                        description: "My first task"
+                      },
+                      {
+                        title: "Second Todo",
+                        description: "Another task"
+                      }
+                    ]
+                }
             },
         });
-
         console.log("user created",user);
     }catch (error) {
         console.error("Prisma error:", error);
